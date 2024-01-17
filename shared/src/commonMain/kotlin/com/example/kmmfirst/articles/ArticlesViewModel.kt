@@ -15,9 +15,11 @@ class ArticlesViewModel:BaseViewModel() {
     }
     private fun getArticles(){
         scope.launch {
+            delay(1000)
+            _articlesState.emit(ArticlesState(error = "Something went wrong"))
+            delay(1000)
             val fetchedArticles =fetchArticles()
 
-            delay(1000)
             _articlesState.emit(ArticlesState(articles = fetchedArticles))
         }
     }
