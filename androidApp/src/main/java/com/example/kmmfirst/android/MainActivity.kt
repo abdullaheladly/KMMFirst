@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kmmfirst.android.screens.AboutDeviceScreen
+import com.example.kmmfirst.android.screens.AppScaffold
 import com.example.kmmfirst.android.screens.ArticlesScreen
 import com.example.kmmfirst.articles.ArticlesViewModel
 
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ArticlesScreen(onAboutButtonClick = {  }, articlesViewModel = articlesViewModel)
+                    AppScaffold(articlesViewModel = articlesViewModel)
                 }
             }
         }
@@ -39,6 +40,8 @@ fun GreetingView(text: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        AboutDeviceScreen()
+        AboutDeviceScreen{
+            
+        }
     }
 }
