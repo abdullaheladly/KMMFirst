@@ -5,7 +5,7 @@ struct ContentView: View {
 
 
 	var body: some View {
-		AboutDeviceScreen()
+        ArticlesScreen(viewModel: .init())
 	}
 }
 

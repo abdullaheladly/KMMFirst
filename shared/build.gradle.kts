@@ -1,9 +1,14 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    id("co.touchlab.skie") version "0.4.19"
 }
 
+@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
+
 kotlin {
+    targetHierarchy.default()
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -19,23 +24,32 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            isStatic = true
         }
     }
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.coroutines.core)
+            }
         }
 
-        androidMain.dependencies {
-            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            }
         }
-        iosMain.dependencies {
 
+        val iosMain by getting {
+            dependencies {
+
+            }
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
         }
     }
 }
