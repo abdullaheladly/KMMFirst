@@ -32,6 +32,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.kmmfirst.articles.Article
 import com.example.kmmfirst.articles.ArticlesViewModel
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -43,13 +45,10 @@ fun ArticlesScreen(
 
     Column {
         AppBar(onAboutButtonClick)
-
-        if (articlesState.value.loading)
-            Loader()
         if (articlesState.value.error != null)
             ErrorMessage(articlesState.value.error!!)
         if (articlesState.value.articles.isNotEmpty())
-            ArticlesListView(articlesViewModel.articlesState.value.articles)
+            ArticlesListView(articlesViewModel)
     }
 }
 
@@ -72,11 +71,16 @@ private fun AppBar(
 }
 
 @Composable
-fun ArticlesListView(articles: List<Article>) {
+fun ArticlesListView(viewModel: ArticlesViewModel) {
 
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(articles) { article ->
-            ArticleItemView(article = article)
+
+    SwipeRefresh(
+        state = SwipeRefreshState(viewModel.articlesState.value.loading),
+        onRefresh = { viewModel.getArticles(true) }) {
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(viewModel.articlesState.value.articles) { article ->
+                ArticleItemView(article = article)
+            }
         }
     }
 }

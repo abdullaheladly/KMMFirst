@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.accompanist.swiperefresh)
     implementation(libs.androidx.navigation.compose)
     debugImplementation(libs.compose.ui.tooling)
 }
