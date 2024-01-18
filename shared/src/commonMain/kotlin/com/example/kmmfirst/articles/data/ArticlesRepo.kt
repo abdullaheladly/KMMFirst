@@ -1,4 +1,6 @@
-package com.example.kmmfirst.articles
+package com.example.kmmfirst.articles.data
+
+import com.example.kmmfirst.articles.domain.ArticleRaw
 
 class ArticlesRepo(
     private val dataSource: ArticlesDataSource,

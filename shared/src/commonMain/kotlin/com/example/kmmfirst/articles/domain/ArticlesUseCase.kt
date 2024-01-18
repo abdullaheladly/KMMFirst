@@ -1,5 +1,6 @@
-package com.example.kmmfirst.articles
+package com.example.kmmfirst.articles.domain
 
+import com.example.kmmfirst.articles.data.ArticlesRepo
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone

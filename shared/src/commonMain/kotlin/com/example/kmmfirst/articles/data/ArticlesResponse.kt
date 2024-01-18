@@ -1,5 +1,6 @@
-package com.example.kmmfirst.articles
+package com.example.kmmfirst.articles.data
 
+import com.example.kmmfirst.articles.domain.ArticleRaw
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

@@ -11,13 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kmmfirst.android.screens.AboutDeviceScreen
 import com.example.kmmfirst.android.screens.AppScaffold
-import com.example.kmmfirst.android.screens.ArticlesScreen
-import com.example.kmmfirst.articles.ArticlesViewModel
+import com.example.kmmfirst.articles.presentation.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val articlesViewModel :ArticlesViewModel by viewModels()
+        val articlesViewModel : ArticlesViewModel by viewModels()
         setContent {
             MyApplicationTheme {
                 Surface(

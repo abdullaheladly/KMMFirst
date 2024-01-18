@@ -1,4 +1,6 @@
-package com.example.kmmfirst.articles
+package com.example.kmmfirst.articles.presentation
+
+import com.example.kmmfirst.articles.domain.Article
 
 data class ArticlesState (
     val articles:List<Article> = listOf(),

@@ -1,6 +1,6 @@
-package com.example.kmmfirst.articles
+package com.example.kmmfirst.articles.data
 
-import com.example.kmmfirst.db.Article
+import com.example.kmmfirst.articles.domain.ArticleRaw
 import com.example.kmmfirst.db.KMMFirstDatabase
 
 class ArticlesDataSource(private val database: KMMFirstDatabase) {
@@ -33,5 +33,5 @@ class ArticlesDataSource(private val database: KMMFirstDatabase) {
         desc:String?,
         date:String,
         image:String?
-    ) :ArticleRaw = ArticleRaw(title,desc,date,image)
+    ) : ArticleRaw = ArticleRaw(title,desc,date,image)
 }

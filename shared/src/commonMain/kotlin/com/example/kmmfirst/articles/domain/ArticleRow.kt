@@ -1,4 +1,4 @@
-package com.example.kmmfirst.articles
+package com.example.kmmfirst.articles.domain
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

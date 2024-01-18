@@ -30,8 +30,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.kmmfirst.articles.Article
-import com.example.kmmfirst.articles.ArticlesViewModel
+import com.example.kmmfirst.articles.domain.Article
+import com.example.kmmfirst.articles.presentation.ArticlesViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
 import org.koin.androidx.compose.getViewModel
