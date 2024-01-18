@@ -55,7 +55,7 @@ struct ArticlesScreen: View {
                 ScrollView {
                     LazyVStack(spacing: 10) {
                         ForEach(viewModel.articlesState.articles, id: \.self) { article in
-                            ArticleItemView(article: article)
+                            ArticleItemView(article: Article(title: article.title, desc: article.desc, date:article.date, imageUrl: article.imageUrl))
                         }
                     }
                 }
@@ -80,7 +80,7 @@ struct ArticleItemView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            AsyncImage(url: URL(string: article.imageUrl)) { phase in
+            AsyncImage(url: URL(string:  article.imageUrl ?? "")) { phase in
                 if phase.image != nil {
                     phase.image!
                         .resizable()
@@ -94,7 +94,7 @@ struct ArticleItemView: View {
             Text(article.title)
                 .font(.title)
                 .fontWeight(.bold)
-            Text(article.desc)
+            Text(article.desc ?? "")
             Text(article.date).frame(maxWidth: .infinity, alignment: .trailing).foregroundStyle(.gray)
         }
         .padding(16)
