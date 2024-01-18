@@ -12,7 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.kmmfirst.articles.ArticlesViewModel
 
 @Composable
-fun AppScaffold(articlesViewModel: ArticlesViewModel) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold {
@@ -20,8 +20,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
             navController = navController,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it),
-            articlesViewModel
+                .padding(it)
         )
     }
 }
@@ -29,8 +28,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 @Composable
 fun AppNavHost(
     navController: NavHostController,
-    modifier: Modifier = Modifier,
-    articlesViewModel: ArticlesViewModel
+    modifier: Modifier = Modifier
 ) {
     NavHost(
         navController = navController,
@@ -40,7 +38,6 @@ fun AppNavHost(
         composable(Screen.ARTICLES.route) {
             ArticlesScreen(
                 onAboutButtonClick = { navController.navigate(Screen.ABOUT_DEVICE.route) },
-                articlesViewModel,
             )
         }
 
